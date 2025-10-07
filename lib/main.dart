@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:food_pizza_hot/screen/Addressinfo.dart';
 import 'package:food_pizza_hot/screen/Forgot_password.dart';
+import 'package:food_pizza_hot/screen/Paymentsuccessfull.dart';
 import 'package:food_pizza_hot/screen/accessloction.dart';
+import 'package:food_pizza_hot/screen/editprofile.dart';
 import 'package:food_pizza_hot/screen/home.dart';
 
 import 'package:food_pizza_hot/screen/login.dart';
 import 'package:food_pizza_hot/screen/onbording.dart';
 import 'package:food_pizza_hot/screen/onbording1.dart';
 import 'package:food_pizza_hot/screen/onbording2.dart';
+import 'package:food_pizza_hot/screen/personalinfo.dart';
+import 'package:food_pizza_hot/screen/profile.dart';
 import 'package:food_pizza_hot/screen/signup.dart';
 import 'package:food_pizza_hot/sign_up.dart';
 
@@ -27,7 +32,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Home(),
+      home: Paymentsuccessfull(),
     );
   }
 }

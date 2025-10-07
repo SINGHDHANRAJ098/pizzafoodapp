@@ -70,13 +70,13 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  SizedBox(width: 85),
+                  SizedBox(width: 80),
                   Badge(
-                    label: Text('2'), // Display "3" on the badge
+                    label: Text('2'),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.black45,
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: IconButton(
                         padding: EdgeInsets.all(10),
@@ -243,7 +243,7 @@ class _HomeState extends State<Home> {
                                 fontSize: 15,
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            SizedBox(width: 10),
                             Icon(
                               Icons.delivery_dining,
                               color: Colors.redAccent,
@@ -256,7 +256,7 @@ class _HomeState extends State<Home> {
                                 fontSize: 15,
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            SizedBox(width: 10),
                             Icon(
                               Icons.watch_later_outlined,
                               color: Colors.redAccent,
