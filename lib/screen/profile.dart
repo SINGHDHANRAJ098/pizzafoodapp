@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_pizza_hot/screen/bottomnav.dart';
 import 'package:food_pizza_hot/screen/home.dart';
 import 'package:food_pizza_hot/screen/login.dart';
 import 'package:food_pizza_hot/screen/personalinfo.dart';
@@ -25,7 +26,13 @@ class _ProfileState extends State<Profile> {
                 CircleAvatar(
                   backgroundColor: Colors.grey.shade200,
                   child: IconButton(
-                    onPressed: () {},
+
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Bottomnav()),
+                      );
+                    },
                     icon: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,

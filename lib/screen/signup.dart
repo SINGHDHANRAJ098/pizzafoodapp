@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_pizza_hot/screen/bottomnav.dart';
 import 'package:food_pizza_hot/screen/home.dart';
 import 'package:food_pizza_hot/screen/login.dart';
 
@@ -164,7 +165,7 @@ class _SignupState extends State<Signup> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Login()),
+                              MaterialPageRoute(builder: (context) => Bottomnav()),
                             );
                           },
                           child: Container(

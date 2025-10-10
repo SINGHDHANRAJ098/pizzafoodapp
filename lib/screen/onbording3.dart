@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_pizza_hot/screen/signup.dart';
-import 'package:food_pizza_hot/sign_up.dart';
+
 
 class Onbording3 extends StatefulWidget {
   const Onbording3({super.key});

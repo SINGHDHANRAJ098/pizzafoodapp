@@ -36,7 +36,7 @@ class _PaymentsuccessfullState extends State<Paymentsuccessfull> {
               fontSize: 14,
             ),
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 70),
           Container(
             height: 50,
             width: 250,
@@ -44,12 +44,14 @@ class _PaymentsuccessfullState extends State<Paymentsuccessfull> {
               color: Colors.redAccent,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Text(
-              "TRACK ORDER",
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 15,
+            child: Center(
+              child: Text(
+                "TRACK ORDER",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
               ),
             ),
           ),

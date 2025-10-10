@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:food_pizza_hot/model/category.dart';
 import 'package:food_pizza_hot/model/category_data.dart';
+import 'package:food_pizza_hot/screen/cart.dart';
 
 import 'package:food_pizza_hot/screen/onbording.dart';
+import 'package:food_pizza_hot/screen/restaurent.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -75,7 +77,7 @@ class _HomeState extends State<Home> {
                     label: Text('2'),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.black45,
+                        color: Colors.redAccent,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: IconButton(
@@ -84,7 +86,12 @@ class _HomeState extends State<Home> {
                           Icons.shopping_bag_outlined,
                           color: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Cart()),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -193,87 +200,95 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(22),
-                ),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "images/restaurant.png",
-                      height: 200,
-                      width: 400,
-                      fit: BoxFit.cover,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Rose Garden Restaurant",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Restaurent()),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "images/restaurant.png",
+                        height: 200,
+                        width: 400,
+                        fit: BoxFit.cover,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Rose Garden Restaurant",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Burger - chicken - Wings - Pizza",
-                              style: TextStyle(
-                                color: Colors.black45,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
+                          Row(
+                            children: [
+                              Text(
+                                "Burger - chicken - Wings - Pizza",
+                                style: TextStyle(
+                                  color: Colors.black45,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star_border_outlined,
-                              color: Colors.redAccent,
-                            ),
-                            Text(
-                              "4.5",
-                              style: TextStyle(
-                                color: Colors.black45,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15,
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star_border_outlined,
+                                color: Colors.redAccent,
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Icon(
-                              Icons.delivery_dining,
-                              color: Colors.redAccent,
-                            ),
-                            Text(
-                              "Free",
-                              style: TextStyle(
-                                color: Colors.black45,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15,
+                              Text(
+                                "4.5",
+                                style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Icon(
-                              Icons.watch_later_outlined,
-                              color: Colors.redAccent,
-                            ),
-                            Text(
-                              "20 min.",
-                              style: TextStyle(
-                                color: Colors.black45,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15,
+                              SizedBox(width: 10),
+                              Icon(
+                                Icons.delivery_dining,
+                                color: Colors.redAccent,
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                              Text(
+                                "Free",
+                                style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Icon(
+                                Icons.watch_later_outlined,
+                                color: Colors.redAccent,
+                              ),
+                              Text(
+                                "20 min.",
+                                style: TextStyle(
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

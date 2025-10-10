@@ -15,13 +15,13 @@ List<CategoryModel> getCategories() {
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
-  categoryModel.name = "pasta";
+  categoryModel.name = "Pasta";
   categoryModel.image = "images/pizza1.png";
 
   category.add(categoryModel);
   categoryModel = new CategoryModel();
 
-  categoryModel.name = "tacos";
+  categoryModel.name = "Thali";
   categoryModel.image = "images/tacos.png";
 
   category.add(categoryModel);
