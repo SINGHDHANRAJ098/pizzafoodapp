@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyFoodListScreen extends StatefulWidget {
-  const MyFoodListScreen({Key? key}) : super(key: key);
+class Foodlist extends StatefulWidget {
+  const Foodlist({Key? key}) : super(key: key);
 
   @override
-  State<MyFoodListScreen> createState() => _MyFoodListScreenState();
+  State<Foodlist> createState() => _MyFoodListScreenState();
 }
 
-class _MyFoodListScreenState extends State<MyFoodListScreen>
+class _MyFoodListScreenState extends State<Foodlist>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -73,6 +73,9 @@ class _MyFoodListScreenState extends State<MyFoodListScreen>
         elevation: 0,
         backgroundColor: Colors.white,
         leading: GestureDetector(
+          onTap: (){
+            Navigator.of(context);
+          },
             child: const Icon(Icons.arrow_back_ios, color: Colors.black)),
         title: const Text(
           'My Food List',
@@ -122,7 +125,7 @@ class _MyFoodListScreenState extends State<MyFoodListScreen>
       child: ListView.separated(
         itemCount: list.length,
         separatorBuilder: (context, index) =>
-            const Divider(height: 25, color: Colors.grey),
+        const Divider(height: 25, color: Colors.grey),
         itemBuilder: (context, index) {
           final food = list[index];
           return _buildFoodCard(food);
@@ -169,7 +172,7 @@ class _MyFoodListScreenState extends State<MyFoodListScreen>
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.orange.shade50,
+                  color: Colors.red.shade100,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(

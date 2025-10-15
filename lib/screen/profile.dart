@@ -26,7 +26,6 @@ class _ProfileState extends State<Profile> {
                 CircleAvatar(
                   backgroundColor: Colors.grey.shade200,
                   child: IconButton(
-
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -107,12 +106,10 @@ class _ProfileState extends State<Profile> {
                     children: [
                       Container(
                         height: 125,
-
                         decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(20),
                         ),
-
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: Column(

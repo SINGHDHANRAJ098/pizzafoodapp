@@ -19,66 +19,22 @@ class _Onbording3State extends State<Onbording3> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 01),
                   child: Image.asset("images/onbording3.png"),
                 ),
-                SizedBox(height: 10),
-                Center(
-                  child: Text(
-                    "Free delivery offers",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                SizedBox(height: 5),
+                Text(
+                  "Free Delivery offers",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10),
-                Center(
-                  child: Text(
-                    "Get all your loved food in one once place, \n  you just place the orer we do rest",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-
-                SizedBox(height: 70),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Signup()),
-                        );
-                      },
-                      child: Container(
-                        height: 45,
-                        width: 250,
-                        decoration: BoxDecoration(
-                          color: Colors.redAccent,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-
-                        child: Center(
-                          child: Text(
-                            " Get Started",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                SizedBox(height: 5),
+                Text(
+                  "Get all ypur loved in one once place, \n you just place the orer we do rest",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
               ],
             ),

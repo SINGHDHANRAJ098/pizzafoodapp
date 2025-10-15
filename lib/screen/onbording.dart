@@ -11,23 +11,27 @@ class Onbording extends StatefulWidget {
 }
 
 class _OnbordingState extends State<Onbording> {
-
   @override
   void initState() {
-
     super.initState();
-    Timer(Duration(seconds: 2), () {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Onbording1()));
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Onbording1()),
+      );
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Center(child: Image.asset("images/pizzalogo.png"))],
+            children: [Center(child: Image.asset("images/foodlogo.png"),),
+            ],
           ),
         ),
       ),

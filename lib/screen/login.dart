@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_pizza_hot/screen/Forgot_password.dart';
+import 'package:food_pizza_hot/screen/bottomnav.dart';
 import 'package:food_pizza_hot/screen/home.dart';
 import 'package:food_pizza_hot/screen/signup.dart';
+import 'package:food_pizza_hot/screen/verification.dart';
 
 
 class Login extends StatefulWidget {
@@ -17,7 +19,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0D0C23),
+      backgroundColor: Color(0xFF0E0B1F),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -122,7 +124,7 @@ class _LoginState extends State<Login> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ForgotPassword(),
+                                builder: (context) => Verification(),
                               ),
                             );
                           },
@@ -141,7 +143,7 @@ class _LoginState extends State<Login> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Home()),
+                              MaterialPageRoute(builder: (context) => Bottomnav()),
                             );
                           },
                           child: Container(

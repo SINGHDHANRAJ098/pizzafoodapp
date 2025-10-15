@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_pizza_hot/screen/Forgot_password.dart';
 import 'package:food_pizza_hot/screen/login.dart';
 import 'package:food_pizza_hot/screen/signup.dart';
 
@@ -25,7 +26,11 @@ class _VerificationState extends State<Verification> {
                     radius: 20,
                     backgroundColor: Colors.white70,
                     child: Center(
-                      child: Icon(Icons.arrow_back_ios, color: Colors.black45),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                          child: Icon(Icons.arrow_back_ios, color: Colors.black45)),
                     ),
                   ),
                 ],
@@ -101,7 +106,7 @@ class _VerificationState extends State<Verification> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Login()),
+                              MaterialPageRoute(builder: (context) => ForgotPassword()),
                             );
                           },
                           child: Container(

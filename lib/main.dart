@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:food_pizza_hot/chef_screen/Chef_Bottomnav.dart';
+import 'package:food_pizza_hot/chef_screen/Chef_notification.dart';
+import 'package:food_pizza_hot/chef_screen/Chefprofile.dart';
+import 'package:food_pizza_hot/chef_screen/chef_food_detail.dart';
+import 'package:food_pizza_hot/chef_screen/chef_review.dart';
+import 'package:food_pizza_hot/chef_screen/foodlist.dart';
+import 'package:food_pizza_hot/chef_screen/withdraw.dart';
 import 'package:food_pizza_hot/screen/Addressinfo.dart';
 import 'package:food_pizza_hot/screen/Forgot_password.dart';
+import 'package:food_pizza_hot/screen/Order.dart';
 import 'package:food_pizza_hot/screen/Paymentsuccessfull.dart';
 import 'package:food_pizza_hot/screen/accessloction.dart';
 import 'package:food_pizza_hot/screen/addcard.dart';
@@ -39,7 +47,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Bottomnav(),
+      home: ChefBottomnav(),
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:food_pizza_hot/model/burger_data.dart';
 import 'package:food_pizza_hot/model/category.dart';
 import 'package:food_pizza_hot/model/category_data.dart';
 import 'package:food_pizza_hot/model/pizza_data.dart';
+import 'package:food_pizza_hot/screen/bottomnav.dart';
+import 'package:food_pizza_hot/screen/fooddetail.dart';
 import 'package:food_pizza_hot/screen/home.dart';
 
 import '../model/burger.dart';
@@ -50,7 +52,7 @@ class _RestaurentState extends State<Restaurent> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => Home()),
+                        MaterialPageRoute(builder: (context) => Bottomnav()),
                       );
                     },
                     icon: Center(
@@ -274,7 +276,9 @@ class _RestaurentState extends State<Restaurent> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Fooddetail()));
+                },
                 child: Container(
                   height: 35,
                   width: 35,

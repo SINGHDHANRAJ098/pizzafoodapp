@@ -26,7 +26,11 @@ class _SignupState extends State<Signup> {
                     radius: 20,
                     backgroundColor: Colors.white70,
                     child: Center(
-                      child: Icon(Icons.arrow_back_ios, color: Colors.black45),
+                      child: GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                          child: Icon(Icons.arrow_back_ios, color: Colors.black45)),
                     ),
                   ),
                 ],
