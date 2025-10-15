@@ -45,168 +45,170 @@ class _PaymentState extends State<Payment> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          children: [
-            // Payment Method selector
-            SizedBox(
-              height: 90,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: paymentMethods.length,
-                itemBuilder: (context, index) {
-                  final method = paymentMethods[index];
-                  final isSelected = index == selectedIndex;
-                  return GestureDetector(
-                    onTap: () => setState(() => selectedIndex = index),
-                    child: Container(
-                      width: 90,
-                      margin: const EdgeInsets.only(right: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(16),
-                        border: isSelected
-                            ? Border.all(color: Colors.orange, width: 2)
-                            : Border.all(color: Colors.transparent),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            method['images']!,
-                            height: 36,
-                            width: 36,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            method['label']!,
-                            style: TextStyle(
-                              color: isSelected
-                                  ? Colors.orangeAccent
-                                  : Colors.black,
-                              fontWeight: isSelected
-                                  ? FontWeight.w600
-                                  : FontWeight.normal,
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Payment Method selector
+              SizedBox(
+                height: 90,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: paymentMethods.length,
+                  itemBuilder: (context, index) {
+                    final method = paymentMethods[index];
+                    final isSelected = index == selectedIndex;
+                    return GestureDetector(
+                      onTap: () => setState(() => selectedIndex = index),
+                      child: Container(
+                        width: 90,
+                        margin: const EdgeInsets.only(right: 12),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade100,
+                          borderRadius: BorderRadius.circular(16),
+                          border: isSelected
+                              ? Border.all(color: Colors.orange, width: 2)
+                              : Border.all(color: Colors.transparent),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              method['images']!,
+                              height: 36,
+                              width: 36,
+                              fit: BoxFit.contain,
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 8),
+                            Text(
+                              method['label']!,
+                              style: TextStyle(
+                                color: isSelected
+                                    ? Colors.orangeAccent
+                                    : Colors.black,
+                                fontWeight: isSelected
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 600,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: const DecorationImage(
+                          image: AssetImage("images/cardlogo.png"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  );
-                },
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 120,
-                    width: 600,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: const DecorationImage(
-                        image: AssetImage("images/cardlogo.png"),
-                        fit: BoxFit.cover,
+                    const SizedBox(height: 16),
+                    const Text(
+                      "No master card added",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                        fontSize: 16,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    "No master card added",
+                    const SizedBox(height: 6),
+                    const Text(
+                      "You can add a mastercard and save it for later",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.grey, fontSize: 13),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Container(
+                width: double.infinity,
+                height: 60,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.redAccent),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: TextButton.icon(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Addcard()),
+                    );
+                  },
+                  icon: const Icon(Icons.add, color: Colors.redAccent),
+                  label: const Text(
+                    "ADD NEW",
                     style: TextStyle(
+                      color: Colors.redAccent,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 6),
-                  const Text(
-                    "You can add a mastercard and save it for later",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey, fontSize: 13),
+                ),
+              ),
+
+              const Spacer(),
+
+              // Total & Pay Button
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "TOTAL:",
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                  Text(
+                    "\$96",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
-            ),
-
-            const SizedBox(height: 20),
-
-            Container(
-              width: double.infinity,
-              height: 60,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.redAccent),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: TextButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Addcard()),
-                  );
-                },
-                icon: const Icon(Icons.add, color: Colors.redAccent),
-                label: const Text(
-                  "ADD NEW",
-                  style: TextStyle(
-                    color: Colors.redAccent,
-                    fontWeight: FontWeight.w600,
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.redAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    "PAY & CONFIRM",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
-            ),
-
-            const Spacer(),
-
-            // Total & Pay Button
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  "TOTAL:",
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-                Text(
-                  "\$96",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  "PAY & CONFIRM",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -23,15 +23,15 @@ class _MyFoodListScreenState extends State<Foodlist>
     {
       "name": "Margherita Pizza",
       "category": "Lunch",
-      "rating": 4.8,
-      "reviews": 15,
+      "rating": 4.7,
+      "reviews": 18,
       "price": 30,
       "image": "images/pizza1.png",
     },
     {
       "name": "Panner pizza ",
       "category": "Dinner",
-      "rating": 4.7,
+      "rating": 4.8,
       "reviews": 20,
       "price": 25,
       "image": "images/pizza3.png",
@@ -173,6 +173,7 @@ class _MyFoodListScreenState extends State<Foodlist>
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.red.shade100,
+
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(

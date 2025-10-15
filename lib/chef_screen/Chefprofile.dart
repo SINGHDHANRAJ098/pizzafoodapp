@@ -32,7 +32,9 @@ class _ChefprofileState extends State<Chefprofile> {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       icon: Icon(
                         Icons.arrow_back_ios,
                         size: 16,

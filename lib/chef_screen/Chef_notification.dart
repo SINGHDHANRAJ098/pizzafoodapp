@@ -45,7 +45,7 @@ class _NotificationScreenState extends State<ChefNotification>
           labelStyle: const TextStyle(fontWeight: FontWeight.w600),
           tabs: const [
             Tab(text: 'Notifications'),
-            Tab(text: 'Messages (3)'),
+            Tab(text: 'Messages '),
           ],
         ),
       ),
@@ -105,14 +105,14 @@ class _NotificationScreenState extends State<ChefNotification>
           title: RichText(
             text: TextSpan(
               text: item['name'],
-              style: const TextStyle(
+              style:  TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.normal,
               ),
               children: [
                 TextSpan(
                   text: ' ${item['action']}',
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.normal,
                   ),
@@ -120,7 +120,7 @@ class _NotificationScreenState extends State<ChefNotification>
               ],
             ),
           ),
-          subtitle: Text(item['time']!, style: const TextStyle(color: Colors.grey)),
+          subtitle: Text(item['time']!, style:  TextStyle(color: Colors.grey)),
           trailing: ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
@@ -176,7 +176,7 @@ class _NotificationScreenState extends State<ChefNotification>
 
     return ListView.separated(
       itemCount: messages.length,
-      separatorBuilder: (context, index) => const Divider(thickness: 0.5),
+      separatorBuilder: (context, index) =>  Divider(thickness: 0.5),
       itemBuilder: (context, index) {
         final msg = messages[index];
         return ListTile(
@@ -193,7 +193,7 @@ class _NotificationScreenState extends State<ChefNotification>
                   child: Container(
                     width: 8,
                     height: 8,
-                    decoration: const BoxDecoration(
+                    decoration:  BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
                     ),
@@ -203,27 +203,27 @@ class _NotificationScreenState extends State<ChefNotification>
           ),
           title: Text(
             msg['name'],
-            style: const TextStyle(
+            style:  TextStyle(
               fontWeight: FontWeight.w500,
               color: Colors.black,
             ),
           ),
           subtitle: Text(
             msg['message'],
-            style: const TextStyle(color: Colors.grey),
+            style:  TextStyle(color: Colors.grey),
           ),
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 msg['time'],
-                style: const TextStyle(color: Colors.grey, fontSize: 12),
+                style:  TextStyle(color: Colors.grey, fontSize: 12),
               ),
               if (msg['unread'] > 0)
                 Container(
-                  margin: const EdgeInsets.only(top: 4),
+                  margin:  EdgeInsets.only(top: 4),
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                   EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
                     color: Colors.redAccent,
                     borderRadius: BorderRadius.circular(12),

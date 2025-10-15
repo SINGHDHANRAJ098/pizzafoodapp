@@ -27,7 +27,9 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
               size: 18,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
         title: Text(
@@ -108,8 +110,9 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.location_city, color: Colors.grey,size: 14,),
+                    Icon(Icons.location_city_rounded, color: Colors.grey, size: 14),
                     Text(
                       "Kentucky 39495",
                       style: TextStyle(
@@ -117,7 +120,27 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                    
+                    Row(
+                      children: [
+                        Icon(Icons.star, size: 12, color: Colors.redAccent),
+                      ],
+                    ),
+                    Text(
+                      "4.7",
+                      style: TextStyle(
+                        color: Colors.redAccent,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 13,
+                      ),
+                    ),
+                    Text(
+                      "10 Reviews",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
                   ],
                 ),
               ),
