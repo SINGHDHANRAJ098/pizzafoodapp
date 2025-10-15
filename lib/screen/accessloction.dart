@@ -19,7 +19,7 @@ class _AccessloctionState extends State<Accessloction> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding:  EdgeInsets.only(top: 50),
                   child: Image.asset("images/allowlocation.png"),
                 ),
                 SizedBox(height: 10),

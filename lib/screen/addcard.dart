@@ -14,21 +14,27 @@ class _AddcardState extends State<Addcard> {
   final TextEditingController expiryDateController = TextEditingController();
   final TextEditingController cvcController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Row(
                 children: [
-                 IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Payment()));}, icon: Icon(Icons.arrow_back_ios)),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Payment()),
+                      );
+                    },
+                    icon: Icon(Icons.arrow_back_ios),
+                  ),
                   SizedBox(width: 10),
                   Text(
                     "Add Card",
@@ -38,7 +44,6 @@ class _AddcardState extends State<Addcard> {
               ),
               SizedBox(height: 30),
 
-
               Text("CARD HOLDER NAME", style: labelStyle),
               SizedBox(height: 6),
               TextField(
@@ -46,7 +51,6 @@ class _AddcardState extends State<Addcard> {
                 decoration: inputDecoration("Vishal Khadok"),
               ),
               SizedBox(height: 20),
-
 
               Text("CARD NUMBER", style: labelStyle),
               SizedBox(height: 6),
@@ -56,7 +60,6 @@ class _AddcardState extends State<Addcard> {
                 decoration: inputDecoration("2134  ••••  ••••"),
               ),
               SizedBox(height: 20),
-
 
               Row(
                 children: [
@@ -94,14 +97,11 @@ class _AddcardState extends State<Addcard> {
               ),
               Spacer(),
 
-
               SizedBox(
                 width: double.infinity,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {
-
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 16),
                     backgroundColor: Colors.redAccent,
@@ -117,7 +117,7 @@ class _AddcardState extends State<Addcard> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -144,4 +144,3 @@ class _AddcardState extends State<Addcard> {
     fontWeight: FontWeight.w500,
   );
 }
-

@@ -16,13 +16,13 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: Container(
-          margin: const EdgeInsets.all(8),
+          margin:  EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.grey.shade200,
             shape: BoxShape.circle,
           ),
           child: IconButton(
-            icon: const Icon(
+            icon:  Icon(
               Icons.arrow_back_ios_new,
               size: 18,
               color: Colors.black,
@@ -59,7 +59,7 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
+                padding:  EdgeInsets.only(
                   top: 10,
                   left: 10,
                   right: 10,
@@ -83,7 +83,7 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -108,7 +108,7 @@ class _ChefFoodDetailState extends State<ChefFoodDetail> {
               ),
 
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

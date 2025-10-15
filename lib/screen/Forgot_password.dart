@@ -78,7 +78,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
 
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
+                padding:  EdgeInsets.only(top: 20, left: 18, right: 18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
 

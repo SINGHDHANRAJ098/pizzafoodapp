@@ -73,8 +73,8 @@ class _MyFoodListScreenState extends State<MyFoodListScreen>
         elevation: 0,
         backgroundColor: Colors.white,
         leading: GestureDetector(
-            child: const Icon(Icons.arrow_back_ios, color: Colors.black)),
-        title: const Text(
+            child:  Icon(Icons.arrow_back_ios, color: Colors.black)),
+        title:  Text(
           'My Food List',
           style: TextStyle(
             color: Colors.black,

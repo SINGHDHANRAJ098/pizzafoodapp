@@ -53,13 +53,13 @@ class ChefReview extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.grey.shade200,
                     child: IconButton(
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back_ios_new,
                         size: 18,
                         color: Colors.black,
@@ -69,8 +69,8 @@ class ChefReview extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(width: 15),
-                  const Text(
+                   SizedBox(width: 15),
+                   Text(
                     "Reviews",
                     style: TextStyle(
                       fontSize: 18,
@@ -82,17 +82,17 @@ class ChefReview extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 10),
+             SizedBox(height: 10),
 
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding:  EdgeInsets.symmetric(horizontal: 16),
                 itemCount: reviews.length,
                 itemBuilder: (context, index) {
                   final item = reviews[index];
                   return Container(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    padding: const EdgeInsets.symmetric(
+                    margin:  EdgeInsets.only(bottom: 16),
+                    padding:  EdgeInsets.symmetric(
                       horizontal: 14,
                       vertical: 14,
                     ),
@@ -110,7 +110,7 @@ class ChefReview extends StatelessWidget {
                               radius: 22,
                               backgroundImage: AssetImage(item['images']),
                             ),
-                            const SizedBox(width: 10),
+                             SizedBox(width: 10),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,25 +122,25 @@ class ChefReview extends StatelessWidget {
                                       fontSize: 12,
                                     ),
                                   ),
-                                  const SizedBox(height: 4),
+                                   SizedBox(height: 4),
                                   Text(
                                     item['name'],
-                                    style: const TextStyle(
+                                    style:  TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                     ),
                                   ),
-                                  const SizedBox(height: 6),
+                                   SizedBox(height: 6),
                                   _buildStars(item['rating']),
                                 ],
                               ),
                             ),
-                            const Icon(Icons.more_vert, color: Colors.grey),
+                             Icon(Icons.more_vert, color: Colors.grey),
                           ],
                         ),
 
-                        const SizedBox(height: 10),
+                         SizedBox(height: 10),
                         Text(
                           item['review'],
                           style: TextStyle(

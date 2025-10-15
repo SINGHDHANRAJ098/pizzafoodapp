@@ -94,7 +94,7 @@ class _NotificationScreenState extends State<ChefNotification>
 
     return ListView.separated(
       itemCount: notifications.length,
-      separatorBuilder: (context, index) => const Divider(thickness: 0.5),
+      separatorBuilder: (context, index) =>  Divider(thickness: 0.5),
       itemBuilder: (context, index) {
         final item = notifications[index];
         return ListTile(
@@ -230,7 +230,7 @@ class _NotificationScreenState extends State<ChefNotification>
                   ),
                   child: Text(
                     '${msg['unread']}',
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style:  TextStyle(color: Colors.white, fontSize: 10),
                   ),
                 ),
             ],

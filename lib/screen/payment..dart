@@ -24,7 +24,7 @@ class _PaymentState extends State<Payment> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: Container(
-          margin: const EdgeInsets.all(8),
+          margin:  EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.grey.shade200,
             shape: BoxShape.circle,
@@ -44,7 +44,7 @@ class _PaymentState extends State<Payment> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: SafeArea(
           child: Column(
             children: [
@@ -61,7 +61,7 @@ class _PaymentState extends State<Payment> {
                       onTap: () => setState(() => selectedIndex = index),
                       child: Container(
                         width: 90,
-                        margin: const EdgeInsets.only(right: 12),
+                        margin:  EdgeInsets.only(right: 12),
                         decoration: BoxDecoration(
                           color: Colors.grey.shade100,
                           borderRadius: BorderRadius.circular(16),
@@ -78,7 +78,7 @@ class _PaymentState extends State<Payment> {
                               width: 36,
                               fit: BoxFit.contain,
                             ),
-                            const SizedBox(height: 8),
+                             SizedBox(height: 8),
                             Text(
                               method['label']!,
                               style: TextStyle(
@@ -98,10 +98,10 @@ class _PaymentState extends State<Payment> {
                 ),
               ),
 
-              const SizedBox(height: 25),
+               SizedBox(height: 25),
 
               Container(
-                padding: const EdgeInsets.all(20),
+                padding:  EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Colors.grey.shade100,
                   borderRadius: BorderRadius.circular(20),
@@ -113,14 +113,14 @@ class _PaymentState extends State<Payment> {
                       width: 600,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        image: const DecorationImage(
+                        image:  DecorationImage(
                           image: AssetImage("images/cardlogo.png"),
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    const Text(
+                     SizedBox(height: 16),
+                     Text(
                       "No master card added",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -128,8 +128,8 @@ class _PaymentState extends State<Payment> {
                         fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 6),
-                    const Text(
+                     SizedBox(height: 6),
+                     Text(
                       "You can add a mastercard and save it for later",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.grey, fontSize: 13),
@@ -138,7 +138,7 @@ class _PaymentState extends State<Payment> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+               SizedBox(height: 20),
 
               Container(
                 width: double.infinity,
@@ -154,8 +154,8 @@ class _PaymentState extends State<Payment> {
                       MaterialPageRoute(builder: (context) => Addcard()),
                     );
                   },
-                  icon: const Icon(Icons.add, color: Colors.redAccent),
-                  label: const Text(
+                  icon:  Icon(Icons.add, color: Colors.redAccent),
+                  label:  Text(
                     "ADD NEW",
                     style: TextStyle(
                       color: Colors.redAccent,
@@ -165,12 +165,12 @@ class _PaymentState extends State<Payment> {
                 ),
               ),
 
-              const Spacer(),
+               Spacer(),
 
               // Total & Pay Button
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children:  [
                   Text(
                     "TOTAL:",
                     style: TextStyle(color: Colors.grey, fontSize: 14),

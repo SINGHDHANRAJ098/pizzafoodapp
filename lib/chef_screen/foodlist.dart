@@ -76,8 +76,8 @@ class _MyFoodListScreenState extends State<Foodlist>
           onTap: (){
             Navigator.of(context);
           },
-            child: const Icon(Icons.arrow_back_ios, color: Colors.black)),
-        title: const Text(
+            child:  Icon(Icons.arrow_back_ios, color: Colors.black)),
+        title:  Text(
           'My Food List',
           style: TextStyle(
             color: Colors.black,
@@ -93,16 +93,16 @@ class _MyFoodListScreenState extends State<Foodlist>
             controller: _tabController,
             labelColor: Colors.redAccent,
             unselectedLabelColor: Colors.black,
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold),
+            labelStyle:  TextStyle(fontWeight: FontWeight.bold),
             indicatorColor: Colors.redAccent,
-            tabs: const [
+            tabs:  [
               Tab(text: "All"),
               Tab(text: "Breakfast"),
               Tab(text: "Lunch"),
               Tab(text: "Dinner"),
             ],
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 10),
           Expanded(
             child: TabBarView(
               controller: _tabController,
@@ -121,11 +121,11 @@ class _MyFoodListScreenState extends State<Foodlist>
 
   Widget _buildFoodList(List<Map<String, dynamic>> list) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding:  EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: ListView.separated(
         itemCount: list.length,
         separatorBuilder: (context, index) =>
-        const Divider(height: 25, color: Colors.grey),
+         Divider(height: 25, color: Colors.grey),
         itemBuilder: (context, index) {
           final food = list[index];
           return _buildFoodCard(food);
@@ -147,7 +147,7 @@ class _MyFoodListScreenState extends State<Foodlist>
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(width: 12),
+         SizedBox(width: 12),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,19 +158,19 @@ class _MyFoodListScreenState extends State<Foodlist>
                   Expanded(
                     child: Text(
                       food["name"],
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const Icon(Icons.more_horiz, color: Colors.grey),
+                   Icon(Icons.more_horiz, color: Colors.grey),
                 ],
               ),
-              const SizedBox(height: 4),
+               SizedBox(height: 4),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding:  EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.red.shade100,
 
@@ -178,25 +178,25 @@ class _MyFoodListScreenState extends State<Foodlist>
                 ),
                 child: Text(
                   food["category"],
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.redAccent,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              const SizedBox(height: 6),
+               SizedBox(height: 6),
               Row(
                 children: [
-                  const Icon(Icons.star, color: Colors.redAccent, size: 16),
-                  const SizedBox(width: 4),
+                   Icon(Icons.star, color: Colors.redAccent, size: 16),
+                   SizedBox(width: 4),
                   Text(
                     "${food["rating"]} (${food["reviews"]} Reviews)",
-                    style: const TextStyle(color: Colors.grey, fontSize: 13),
+                    style:  TextStyle(color: Colors.grey, fontSize: 13),
                   ),
-                  const Spacer(),
+                   Spacer(),
                   Text(
                     "\$${food["price"]}",
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                       fontSize: 16,

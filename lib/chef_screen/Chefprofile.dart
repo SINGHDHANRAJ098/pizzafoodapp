@@ -166,8 +166,8 @@ class _ChefprofileState extends State<Chefprofile> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 15),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        margin:  EdgeInsets.only(bottom: 15),
+        padding:  EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           color: Colors.grey.shade200,
           borderRadius: BorderRadius.circular(14),
@@ -183,17 +183,17 @@ class _ChefprofileState extends State<Chefprofile> {
                 size: 20,
               ),
             ),
-            const SizedBox(width: 12),
-            Expanded(child: Text(title, style: const TextStyle(fontSize: 15))),
+             SizedBox(width: 12),
+            Expanded(child: Text(title, style:  TextStyle(fontSize: 15))),
             if (trailingText != null)
               Text(
                 trailingText,
-                style: const TextStyle(
+                style:  TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-            const Icon(Icons.chevron_right, color: Colors.grey),
+             Icon(Icons.chevron_right, color: Colors.grey),
           ],
         ),
       ),

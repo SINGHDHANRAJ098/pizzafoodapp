@@ -58,7 +58,7 @@ class _CartState extends State<Cart> {
         children: [
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               children: [
                 _buildCartItem(
                   image: "images/pizza1.png",
@@ -71,7 +71,7 @@ class _CartState extends State<Cart> {
                     if (pizza1Count > 0) setState(() => pizza1Count--);
                   },
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20),
                 _buildCartItem(
                   image: "images/pizza1.png",
                   title: "Pizza Calzone European",
@@ -89,8 +89,8 @@ class _CartState extends State<Cart> {
 
 
           Container(
-            padding: const EdgeInsets.all(20),
-            decoration: const BoxDecoration(
+            padding:  EdgeInsets.all(20),
+            decoration:  BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
             ),
@@ -100,7 +100,7 @@ class _CartState extends State<Cart> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                     Text(
                       "DELIVERY ADDRESS",
                       style: TextStyle(
                         fontSize: 12,
@@ -110,7 +110,7 @@ class _CartState extends State<Cart> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child:  Text(
                         "EDIT",
                         style: TextStyle(color: Colors.redAccent),
                       ),
@@ -119,23 +119,23 @@ class _CartState extends State<Cart> {
                 ),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(14),
+                  padding:  EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF5F6FA),
+                    color:  Color(0xFFF5F6FA),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text(
+                  child:  Text(
                     "2118 Thornridge Cir. Syracuse",
                     style: TextStyle(color: Colors.black87, fontSize: 14),
                   ),
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20),
 
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                     Text(
                       "TOTAL:",
                       style: TextStyle(
                         color: Colors.grey,
@@ -147,16 +147,16 @@ class _CartState extends State<Cart> {
                       children: [
                         Text(
                           "\$${total.toStringAsFixed(0)}",
-                          style: const TextStyle(
+                          style:  TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                         SizedBox(width: 8),
                         TextButton(
                           onPressed: () {},
-                          child: const Text(
+                          child:  Text(
                             "Breakdown",
                             style: TextStyle(color: Colors.redAccent),
                           ),
@@ -165,7 +165,7 @@ class _CartState extends State<Cart> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 15),
+                 SizedBox(height: 15),
 
 
                 SizedBox(
@@ -179,7 +179,7 @@ class _CartState extends State<Cart> {
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
-                    child: const Text(
+                    child:  Text(
                       "PLACE ORDER",
                       style: TextStyle(
                         color: Colors.white,
@@ -208,9 +208,9 @@ class _CartState extends State<Cart> {
     required VoidCallback onRemove,
   }) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding:  EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFF1C1A2E),
+        color:  Color(0xFF1C1A2E),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -219,32 +219,32 @@ class _CartState extends State<Cart> {
             borderRadius: BorderRadius.circular(15),
             child: Image.asset(image, height: 70, width: 70, fit: BoxFit.cover),
           ),
-          const SizedBox(width: 15),
+           SizedBox(width: 15),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 14,
                   ),
                 ),
-                const SizedBox(height: 6),
+                 SizedBox(height: 6),
                 Text(
                   "\$$price",
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 4),
+                 SizedBox(height: 4),
                 Text(
                   size,
-                  style: const TextStyle(color: Colors.white70, fontSize: 13),
+                  style:  TextStyle(color: Colors.white70, fontSize: 13),
                 ),
               ],
             ),
@@ -253,10 +253,10 @@ class _CartState extends State<Cart> {
             children: [
               _quantityButton(Icons.remove, onRemove),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding:  EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   count.toString(),
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,

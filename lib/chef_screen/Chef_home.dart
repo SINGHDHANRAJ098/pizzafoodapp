@@ -155,7 +155,7 @@ class _HomeScreenState extends State<ChefHome> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Row(
-                children: const [
+                children:  [
                   Text("Daily", style: TextStyle(color: Colors.grey)),
                   SizedBox(width: 5),
                   Icon(Icons.arrow_drop_down, color: Colors.grey),
@@ -163,8 +163,8 @@ class _HomeScreenState extends State<ChefHome> {
               ),
             ],
     ),
-          const SizedBox(height: 5),
-          const Text(
+           SizedBox(height: 5),
+           Text(
             "\$2,241",
             style: TextStyle(
               fontSize: 26,
@@ -182,13 +182,14 @@ class _HomeScreenState extends State<ChefHome> {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+           SizedBox(height: 10),
 
 
           SizedBox(
             height: 150,
             child: LineChart(
               LineChartData(
+
                 gridData:  FlGridData(show: false),
                 titlesData: FlTitlesData(
                   leftTitles:  AxisTitles(
@@ -235,6 +236,7 @@ class _HomeScreenState extends State<ChefHome> {
                   LineChartBarData(
                     isCurved: true,
                     color: Colors.redAccent,
+                    dotData: FlDotData(show: false),
                     barWidth: 3,
                     belowBarData: BarAreaData(
                       show: true,

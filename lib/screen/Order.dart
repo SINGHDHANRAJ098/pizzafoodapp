@@ -107,7 +107,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
             },
           ),
         ),
-        title: const Text(
+        title:  Text(
           "My Orders",
           style: TextStyle(
             color: Colors.black,
@@ -118,13 +118,13 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
         centerTitle: true,
         actions: [
           Container(
-            margin: const EdgeInsets.all(8),
+            margin:  EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              icon: const Icon(Icons.more_horiz, color: Colors.black),
+              icon:  Icon(Icons.more_horiz, color: Colors.black),
               onPressed: () {},
             ),
           ),
@@ -135,7 +135,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
           unselectedLabelColor: Colors.grey,
           indicatorColor: Colors.redAccent,
           indicatorWeight: 2.5,
-          tabs: const [
+          tabs:  [
             Tab(text: "Ongoing"),
             Tab(text: "History"),
           ],
@@ -150,7 +150,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
 
   Widget _buildOngoingOrders() {
     return ListView.builder(
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.all(16),
       itemCount: ongoingOrders.length,
       itemBuilder: (context, index) {
         final order = ongoingOrders[index];
@@ -161,7 +161,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
 
   Widget _buildHistoryOrders() {
     return ListView.builder(
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.all(16),
       itemCount: historyOrders.length,
       itemBuilder: (context, index) {
         final order = historyOrders[index];
@@ -174,8 +174,8 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(order['type']!, style: const TextStyle(color: Colors.black54)),
-        const SizedBox(height: 8),
+        Text(order['type']!, style:  TextStyle(color: Colors.black54)),
+         SizedBox(height: 8),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -188,7 +188,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 12),
+             SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,32 +197,32 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
                     children: [
                       Text(
                         order['name']!,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
-                      const Spacer(),
+                       Spacer(),
                       Text(
                         order['id']!,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           color: Colors.blueGrey,
                           fontSize: 12,
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 6),
+                   SizedBox(height: 6),
                   Row(
                     children: [
                       Text(
                         order['price']!,
-                        style: const TextStyle(fontWeight: FontWeight.w600),
+                        style:  TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(width: 8),
+                       SizedBox(width: 8),
                       Text(
                         order['items']!,
-                        style: const TextStyle(color: Colors.grey),
+                        style:  TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
@@ -231,7 +231,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+         SizedBox(height: 10),
         Row(
           children: [
             Expanded(
@@ -245,26 +245,26 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   onPressed: () {},
-                  child: const Text(
+                  child:  Text(
                     "Track Order",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+             SizedBox(width: 12),
             Expanded(
               child: SizedBox(
                 height: 40,
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.redAccent),
+                    side:  BorderSide(color: Colors.redAccent),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {},
-                  child: const Text(
+                  child:  Text(
                     "Cancel",
                     style: TextStyle(color: Colors.redAccent),
                   ),
@@ -273,7 +273,7 @@ class _OrderState extends State<Order> with SingleTickerProviderStateMixin {
             ),
           ],
         ),
-        const Divider(height: 30, thickness: 1, color: Color(0xFFEAEAEA)),
+         Divider(height: 30, thickness: 1, color: Color(0xFFEAEAEA)),
       ],
     );
   }

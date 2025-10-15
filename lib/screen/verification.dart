@@ -19,7 +19,7 @@ class _VerificationState extends State<Verification> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 10, left: 10),
+              padding:  EdgeInsets.only(top: 10, left: 10),
               child: Row(
                 children: [
                   CircleAvatar(
@@ -73,7 +73,7 @@ class _VerificationState extends State<Verification> {
               ),
 
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, left: 18, right: 18),
+                padding:  EdgeInsets.only(top: 20, left: 18, right: 18),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
 

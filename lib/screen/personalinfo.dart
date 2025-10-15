@@ -113,7 +113,7 @@ class _PersonalinfoState extends State<Personalinfo> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding:  EdgeInsets.only(left: 10),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
