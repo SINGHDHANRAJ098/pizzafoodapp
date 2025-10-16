@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:food_pizza_hot/chef_screen/chef_food_detail.dart';
 import 'package:food_pizza_hot/chef_screen/runningorder.dart';
+import 'package:food_pizza_hot/screen/try.dart';
 
 class ChefHome extends StatefulWidget {
   const ChefHome({super.key});
@@ -104,8 +105,19 @@ class _HomeScreenState extends State<ChefHome> {
   Widget _buildStatCard(String number, String title) {
     return Expanded(
       child: GestureDetector(
-        onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>Runningorder()));
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+            ),
+            builder: (context) => SizedBox(
+              height: MediaQuery.of(context).size.height * 0.75,
+              child: const RunningOrdersSheet(),
+            ),
+          );
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 6),
@@ -113,12 +125,22 @@ class _HomeScreenState extends State<ChefHome> {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
+              ),
+            ],
           ),
           child: Column(
             children: [
               Text(
                 number,
-                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 4),
               Text(
@@ -134,6 +156,7 @@ class _HomeScreenState extends State<ChefHome> {
         ),
       ),
     );
+
   }
 
   Widget _buildRevenueChart() {

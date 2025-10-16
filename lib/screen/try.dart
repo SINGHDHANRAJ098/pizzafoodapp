@@ -1,292 +1,235 @@
 import 'package:flutter/material.dart';
 
-class AddItemScreen extends StatefulWidget {
-  const AddItemScreen({super.key});
+class AddNewItemScreen extends StatefulWidget {
+  const AddNewItemScreen({super.key});
 
   @override
-  State<AddItemScreen> createState() => _AddItemScreenState();
+  State<AddNewItemScreen> createState() => _AddNewItemScreenState();
 }
 
-class _AddItemScreenState extends State<AddItemScreen> {
-  final TextEditingController _itemNameController = TextEditingController(text: 'Mozalichiken Halim');
-  final TextEditingController _detailsController = TextEditingController(
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Bibendum in vel, mattis et amet dui mauris turpis.',
-  );
+class _AddNewItemScreenState extends State<AddNewItemScreen> {
+  bool isPickup = true;
+  bool isDelivery = false;
 
-  bool _isPickupSelected = true;
-  bool _isDeliverySelected = false;
-
-  // Ingredients selection state
-  final Map<String, bool> _basicIngredients = {
-    'Salt': false,
-    'Chicken': true,
-    'Onion': false,
-    'Garlic': false,
-    'Poppers': false,
-    'Ginger': false,
-  };
-
-  final Map<String, bool> _fruitIngredients = {
-    'Avocado': false,
-    'Apple': false,
-    'Blueberry': false,
-    'Broccoli': false,
-    'Orange': false,
-    'Walnut': false,
-  };
+  List<String> selectedBasic = ["Onion", "Pappers"];
+  List<String> selectedFruit = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Add New Items'),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          'Add New Items',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+        centerTitle: true,
         actions: [
-          TextButton(
-            onPressed: () {
-              // Reset functionality
-              _itemNameController.clear();
-              _detailsController.clear();
-              setState(() {
-                _basicIngredients.updateAll((key, value) => false);
-                _fruitIngredients.updateAll((key, value) => false);
-                _isPickupSelected = true;
-                _isDeliverySelected = false;
-              });
-            },
-            child: const Text(
-              'RESET',
-              style: TextStyle(
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Center(
+              child: Text(
+                "RESET",
+                style: TextStyle(
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
               ),
             ),
           ),
         ],
       ),
+
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ITEM NAME
-            const Text(
-              'ITEM NAME',
+            Text(
+              "ITEM NAME",
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.5,
               ),
             ),
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: _itemNameController,
+            SizedBox(height: 6),
+            TextField(
               decoration: InputDecoration(
+                hintText: "Mazalichiken Halim",
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 14,
+                ),
               ),
             ),
-            const SizedBox(height: 24),
 
-            // UPLOAD PHOTO/VIDEO
-            const Text(
-              'UPLOAD PHOTO/VIDEO',
+            SizedBox(height: 20),
+            Text(
+              "UPLOAD PHOTO/VIDEO",
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.5,
               ),
             ),
-            const SizedBox(height: 8),
-            Container(
-              width: double.infinity,
-              height: 120,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.cloud_upload_outlined,
-                    size: 40,
-                    color: Colors.grey.shade400,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Add',
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // PRICE SECTION
-            const Text(
-              'PRICE',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 8),
+            SizedBox(height: 10),
             Row(
               children: [
-                Container(
-                  width: 100,
-                  child: TextFormField(
-                    initialValue: '50',
+                _buildImageBox("images/burger1.png"),
+                SizedBox(width: 10),
+                _buildUploadBox(),
+                SizedBox(width: 10),
+                _buildUploadBox(),
+              ],
+            ),
+
+            SizedBox(height: 20),
+            Text(
+              "PRICE",
+              style: TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+              ),
+            ),
+            SizedBox(height: 6),
+            Row(
+              children: [
+                Expanded(
+                  child: TextField(
                     decoration: InputDecoration(
-                      prefixText: '\$',
+                      hintText: "\$50",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 14,
+                      ),
                     ),
-                    keyboardType: TextInputType.number,
                   ),
                 ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Row(
-                    children: [
-                      // Pick up button
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPickupSelected = true;
-                              _isDeliverySelected = false;
-                            });
-                          },
-                          child: Container(
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: _isPickupSelected ? Colors.blue : Colors.grey.shade200,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: _isPickupSelected ? Colors.blue : Colors.grey.shade300,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Pick up',
-                                style: TextStyle(
-                                  color: _isPickupSelected ? Colors.white : Colors.grey.shade600,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      // Delivery button
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _isPickupSelected = false;
-                              _isDeliverySelected = true;
-                            });
-                          },
-                          child: Container(
-                            height: 48,
-                            decoration: BoxDecoration(
-                              color: _isDeliverySelected ? Colors.blue : Colors.grey.shade200,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: _isDeliverySelected ? Colors.blue : Colors.grey.shade300,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Delivery',
-                                style: TextStyle(
-                                  color: _isDeliverySelected ? Colors.white : Colors.grey.shade600,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                SizedBox(width: 16),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: isPickup,
+                      activeColor: Colors.redAccent,
+                      onChanged: (val) {
+                        setState(() => isPickup = val!);
+                      },
+                    ),
+                    Text("Pick up"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: isDelivery,
+                      activeColor: Colors.redAccent,
+                      onChanged: (val) {
+                        setState(() => isDelivery = val!);
+                      },
+                    ),
+                    Text("Delivery"),
+                  ],
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-
-            // INGREDIENTS SECTION
-            const Text(
-              'INGRIDENTS',
+            SizedBox(height: 10),
+            Text(
+              "INGRIDENTS",
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.5,
               ),
             ),
-            const SizedBox(height: 16),
 
-            // Basic Ingredients
-            _buildIngredientsSection('Basic', _basicIngredients),
-            const SizedBox(height: 16),
+            SizedBox(height: 20),
+            _buildIngredientsSection(
+              title: "Basic",
+              items: [
+                {"name": "Salt", "icon": Icons.bakery_dining},
+                {"name": "Chicken", "icon": Icons.set_meal},
+                {"name": "Onion", "icon": Icons.spa},
+                {"name": "Garlic", "icon": Icons.energy_savings_leaf},
+                {"name": "Pappers", "icon": Icons.local_florist},
+                {"name": "Ginger", "icon": Icons.eco},
+              ],
+              selectedList: selectedBasic,
+            ),
 
-            // Fruit Ingredients
-            _buildIngredientsSection('Fruit', _fruitIngredients),
-            const SizedBox(height: 24),
+            SizedBox(height: 16),
+            _buildIngredientsSection(
+              title: "Fruit",
+              items: [
+                {"name": "Avocado", "icon": Icons.emoji_food_beverage},
+                {"name": "Apple", "icon": Icons.apple},
+                {"name": "Blueberry", "icon": Icons.brightness_5},
+                {"name": "Broccoli", "icon": Icons.grass},
+                {"name": "Orange", "icon": Icons.add_circle_outlined},
+                {"name": "Walnut", "icon": Icons.spa},
+              ],
+              selectedList: selectedFruit,
+            ),
 
-            // DETAILS SECTION
-            const Text(
-              'DETAILS',
+            SizedBox(height: 20),
+            Text(
+              "DETAILS",
               style: TextStyle(
                 fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.5,
               ),
             ),
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: _detailsController,
+            SizedBox(height: 6),
+            TextField(
               maxLines: 4,
               decoration: InputDecoration(
+                hintText:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum in vel, mattis et amet du mauris turpis.",
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                contentPadding: const EdgeInsets.all(12),
+                contentPadding: EdgeInsets.all(12),
               ),
             ),
-            const SizedBox(height: 32),
 
-            // SAVE CHANGES BUTTON
+            SizedBox(height: 30),
             SizedBox(
               width: double.infinity,
-              height: 50,
+              height: 55,
               child: ElevatedButton(
-                onPressed: () {
-                  // Save changes functionality
-                  _saveItem();
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.redAccent,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(14),
                   ),
                 ),
-                child: const Text(
-                  'SAVE CHANGES',
+                child: Text(
+                  "SAVE CHANGES",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
                   ),
                 ),
               ),
@@ -297,7 +240,39 @@ class _AddItemScreenState extends State<AddItemScreen> {
     );
   }
 
-  Widget _buildIngredientsSection(String title, Map<String, bool> ingredients) {
+  Widget _buildImageBox(String imagePath) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Image.asset(imagePath, height: 90, width: 90, fit: BoxFit.cover),
+    );
+  }
+
+  Widget _buildUploadBox() {
+    return Container(
+      height: 90,
+      width: 90,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.upload, color: Colors.redAccent),
+            SizedBox(height: 4),
+            Text("Add", style: TextStyle(color: Colors.grey)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildIngredientsSection({
+    required String title,
+    required List<Map<String, dynamic>> items,
+    required List<String> selectedList,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -306,146 +281,63 @@ class _AddItemScreenState extends State<AddItemScreen> {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
-            TextButton(
-              onPressed: () {
-                // Show all ingredients functionality
-                _showAllIngredients(title, ingredients);
-              },
-              child: const Row(
-                children: [
-                  Text('See All'),
-                  Icon(Icons.arrow_drop_down, size: 20),
-                ],
+            Text(
+              "See All",
+              style: TextStyle(
+                color: Colors.redAccent,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 8),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: ingredients.entries.map((entry) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  ingredients[entry.key] = !entry.value;
-                });
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  color: entry.value ? Colors.blue : Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: entry.value ? Colors.blue : Colors.grey.shade300,
+        SizedBox(height: 8),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: items.map((item) {
+              final isSelected = selectedList.contains(item["name"]);
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (isSelected) {
+                      selectedList.remove(item["name"]);
+                    } else {
+                      selectedList.add(item["name"]);
+                    }
+                  });
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 12),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 25,
+                        backgroundColor: isSelected
+                            ? Colors.red.shade50
+                            : Colors.grey.shade300,
+                        child: Icon(
+                          item["icon"],
+                          color: isSelected ? Colors.redAccent : Colors.black,
+                        ),
+                      ),
+                      SizedBox(height: 6),
+                      Text(
+                        item["name"],
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: isSelected ? Colors.redAccent : Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                child: Text(
-                  entry.key,
-                  style: TextStyle(
-                    color: entry.value ? Colors.white : Colors.grey.shade700,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            );
-          }).toList(),
+              );
+            }).toList(),
+          ),
         ),
       ],
     );
-  }
-
-  void _showAllIngredients(String category, Map<String, bool> ingredients) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '$category Ingredients',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: ingredients.entries.map((entry) {
-                  return ChoiceChip(
-                    label: Text(entry.key),
-                    selected: entry.value,
-                    onSelected: (selected) {
-                      setState(() {
-                        ingredients[entry.key] = selected;
-                      });
-                      Navigator.pop(context);
-                    },
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Close'),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  void _saveItem() {
-    // Implement save functionality here
-    final itemName = _itemNameController.text;
-    final price = 50; // You would get this from the price field
-    final details = _detailsController.text;
-
-    // Get selected ingredients
-    final selectedBasicIngredients = _basicIngredients.entries
-        .where((entry) => entry.value)
-        .map((entry) => entry.key)
-        .toList();
-
-    final selectedFruitIngredients = _fruitIngredients.entries
-        .where((entry) => entry.value)
-        .map((entry) => entry.key)
-        .toList();
-
-    print('Item saved: $itemName');
-    print('Price: \$$price');
-    print('Pickup: $_isPickupSelected, Delivery: $_isDeliverySelected');
-    print('Basic Ingredients: $selectedBasicIngredients');
-    print('Fruit Ingredients: $selectedFruitIngredients');
-    print('Details: $details');
-
-    // Show success message or navigate back
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Item saved successfully!'),
-        backgroundColor: Colors.green,
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _itemNameController.dispose();
-    _detailsController.dispose();
-    super.dispose();
   }
 }
