@@ -57,7 +57,7 @@ class _HomeScreenState extends State<ChefHome> {
             ),
           ],
         ),
-        actions: const [
+        actions:  [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: CircleAvatar(
@@ -242,7 +242,7 @@ class _HomeScreenState extends State<ChefHome> {
                       show: true,
                       color: Colors.orange.withOpacity(0.1),
                     ),
-                    spots: const [
+                    spots:  [
                       FlSpot(0, 2),
                       FlSpot(1, 3),
                       FlSpot(2, 1),
@@ -302,7 +302,7 @@ class _HomeScreenState extends State<ChefHome> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+             Text(
               "Popular Items This Week",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
@@ -315,11 +315,11 @@ class _HomeScreenState extends State<ChefHome> {
             ),
           ],
         ),
-        const SizedBox(height: 10),
+         SizedBox(height: 10),
         Row(
           children: [
             _buildPopularCard('images/chicken biryani.jpg', "Chicken Curry"),
-            const SizedBox(width: 12),
+             SizedBox(width: 12),
             _buildPopularCard('images/pizza4.png', "Chef Special"),
           ],
         ),
@@ -344,13 +344,13 @@ class _HomeScreenState extends State<ChefHome> {
             ),
           ),
           alignment: Alignment.bottomLeft,
-          padding: const EdgeInsets.all(8),
+          padding:  EdgeInsets.all(8),
           child: Container(
             color: Colors.black.withOpacity(0.3),
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+            padding:  EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             child: Text(
               name,
-              style: const TextStyle(color: Colors.white, fontSize: 12),
+              style:  TextStyle(color: Colors.white, fontSize: 12),
             ),
           ),
         ),

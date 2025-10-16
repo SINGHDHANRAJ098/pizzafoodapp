@@ -16,7 +16,8 @@ class _RunningorderState extends State<Runningorder> {
         onTap: (){
           Navigator.of(context);
         },
-          child: Icon(Icons.arrow_back_ios,)),),
+      )
+      )
     );
   }
 }
