@@ -203,7 +203,7 @@ class _AddNewItemScreenState extends State<Addfooditem> {
               maxLines: 4,
               decoration: InputDecoration(
                 hintText:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum in vel, mattis et amet du mauris turpis.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum in vel, mattis et amet du mauris turpis.",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -315,11 +315,11 @@ class _AddNewItemScreenState extends State<Addfooditem> {
                       CircleAvatar(
                         radius: 25,
                         backgroundColor: isSelected
-                            ? Colors.red.shade50
-                            : Colors.grey.shade300,
+                            ? Colors.redAccent
+                            : Colors.orange.shade50,
                         child: Icon(
                           item["icon"],
-                          color: isSelected ? Colors.redAccent : Colors.black,
+                          color: isSelected ? Colors.white : Colors.redAccent,
                         ),
                       ),
                       SizedBox(height: 6),
@@ -327,7 +327,7 @@ class _AddNewItemScreenState extends State<Addfooditem> {
                         item["name"],
                         style: TextStyle(
                           fontSize: 12,
-                          color: isSelected ? Colors.redAccent : Colors.black,
+                          color: isSelected ? Colors.redAccent : Colors.white,
                         ),
                       ),
                     ],

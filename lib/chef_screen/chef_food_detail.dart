@@ -1,153 +1,275 @@
 import 'package:flutter/material.dart';
 
+
 class ChefFoodDetail extends StatefulWidget {
   const ChefFoodDetail({super.key});
 
   @override
-  State<ChefFoodDetail> createState() => _ChefFoodDetailState();
+  State<ChefFoodDetail> createState() => _FoodDetailsScreenState();
 }
 
-class _ChefFoodDetailState extends State<ChefFoodDetail> {
+class _FoodDetailsScreenState extends State<ChefFoodDetail> {
+  Set<String> selectedIngredients = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: Container(
-          margin:  EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            icon:  Icon(
-              Icons.arrow_back_ios_new,
-              size: 18,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        title: Text(
-          "Food Details",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 17,
-            fontWeight: FontWeight.normal,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          Text(
-            "EDIT",
-            style: TextStyle(
-              color: Colors.redAccent,
-              fontWeight: FontWeight.normal,
-              fontSize: 17,
-            ),
-          ),
-          SizedBox(width: 10),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+
               Padding(
-                padding:  EdgeInsets.only(
-                  top: 10,
-                  left: 10,
-                  right: 10,
-                  bottom: 10,
-                ),
-                child: Stack(
-                  children: [
-                    Image.asset("images/chicken biryani.jpg"),
-                    Positioned(
-                      bottom: 10,
-                      right: 10,
-                      child: Chip(label: Text('Breakfast')),
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      left: 10,
-                      child: Chip(label: Text('Delivery')),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding:  EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Chicken biryani",
+                    _buildCircleButton(
+                      icon: Icons.arrow_back_ios_new,
+                      onTap: () => Navigator.pop(context),
+                    ),
+                    const Text(
+                      "Food Details",
                       style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "\$60",
+                    const Text(
+                      "EDIT",
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                        color: Colors.redAccent,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
               ),
 
+
               Padding(
-                padding:  EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                padding:  EdgeInsets.symmetric(horizontal: 16),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
                   children: [
-                    Icon(Icons.location_city_rounded, color: Colors.grey, size: 14),
-                    Text(
-                      "Kentucky 39495",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w300,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        "images/chicken biryani.jpg", // your image path
+                        height: 220,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Icon(Icons.star, size: 12, color: Colors.redAccent),
-                      ],
-                    ),
-                    Text(
-                      "4.7",
-                      style: TextStyle(
-                        color: Colors.redAccent,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 13,
-                      ),
-                    ),
-                    Text(
-                      "10 Reviews",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                        fontWeight: FontWeight.normal,
+                    Positioned(
+                      bottom: 12,
+                      left: 16,
+                      right: 16,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildTag("Breakfast"),
+                          _buildTag("Delivery"),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
+
+               SizedBox(height: 16),
+
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Chicken Thai Biriyani",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(Icons.location_on, color: Colors.grey, size: 16),
+                            SizedBox(width: 4),
+                            Text(
+                              "Kentucky 39495",
+                              style: TextStyle(color: Colors.grey, fontSize: 13),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                     Text(
+                      "\$60",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+               SizedBox(height: 8),
+
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                     Icon(Icons.star, color: Colors.redAccent, size: 20),
+                     SizedBox(width: 4),
+                     Text(
+                      "4.9",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                     SizedBox(width: 4),
+                    Text(
+                      "(10 Reviews)",
+                      style: TextStyle(color: Colors.grey.shade600),
+                    ),
+                  ],
+                ),
+              ),
+
+               SizedBox(height: 16),
+
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     Text(
+                      "INGREDIENTS",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
+                     SizedBox(height: 12),
+                    Wrap(
+                      spacing: 20,
+                      runSpacing: 20,
+                      alignment: WrapAlignment.start,
+                      children: [
+                        _buildIngredient("Salt", Icons.water_drop),
+                        _buildIngredient("Chicken", Icons.set_meal),
+                        _buildIngredient("Onion", Icons.spa),
+                        _buildIngredient("Garlic", Icons.energy_savings_leaf),
+                        _buildIngredient("Pappers", Icons.local_florist),
+                        _buildIngredient("Ginger", Icons.eco),
+                        _buildIngredient("Broccoli", Icons.grass),
+                        _buildIngredient("Orange", Icons.sunny),
+                        _buildIngredient("Walnut", Icons.restaurant),
+                      ],
+                    ),
+
+                  ],
+                ),
+              ),
+
+               SizedBox(height: 24),
+
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     Text(
+                      "Description",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
+                     SizedBox(height: 8),
+                    Text(
+                      "Lorem ipsum dolor sit amet, consectetur Maton adipiscing elit. "
+                          "Bibendum in vel, mattis et amet dui mauris turpis.",
+                      style: TextStyle(color: Colors.grey.shade700, height: 1.5),
+                    ),
+                  ],
+                ),
+              ),
+
+               SizedBox(height: 80),
             ],
           ),
         ),
       ),
     );
   }
+
+
+  Widget _buildCircleButton({required IconData icon, required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: CircleAvatar(
+        radius: 18,
+        backgroundColor: Colors.grey.shade200,
+        child: Icon(icon, color: Colors.black, size: 18),
+      ),
+    );
+  }
+
+  Widget _buildTag(String text) {
+    return Container(
+      padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.85),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+
+  Widget _buildIngredient(String name, IconData icon) {
+    final bool isSelected = selectedIngredients.contains(name);
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          if (isSelected) {
+            selectedIngredients.remove(name);
+          } else {
+            selectedIngredients.add(name);
+          }
+        });
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CircleAvatar(
+            radius: 24,
+            backgroundColor: isSelected ? Colors.redAccent : Colors.orange.shade50,
+            child: Icon(
+              icon,
+              color: isSelected ? Colors.white : Colors.redAccent,
+              size: 20,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            name,
+            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
+    );
+  }
+
 }
