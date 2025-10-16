@@ -1,204 +1,180 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FoodDetailsScreen extends StatelessWidget {
-  const FoodDetailsScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       body: SafeArea(
         child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // AppBar
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _buildCircleButton(
-                      icon: Icons.arrow_back_ios_new,
-                      onTap: () => Navigator.pop(context),
-                    ),
-                    const Text(
-                      "Food Details",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "EDIT",
-                      style: TextStyle(
-                        color: Colors.orange,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              SizedBox(height: 12),
 
-              // Image section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(
-                        "images/chicken biryani.jpg", // your image path
-                        height: 220,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Color(0xFFF6F6F6),
+                        child: Icon(Icons.menu, color: Colors.black),
                       ),
-                    ),
-                    Positioned(
-                      bottom: 12,
-                      left: 16,
-                      right: 16,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _buildTag("Breakfast"),
-                          _buildTag("Delivery"),
+                          Text(
+                            "DELIVER TO",
+                            style: TextStyle(
+                              color: Colors.redAccent,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "Halal Lab office",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Icon(Icons.keyboard_arrow_down_rounded, size: 20),
+                            ],
+                          ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // Title and Price
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Chicken Thai Biriyani",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                    ],
+                  ),
+                  Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Color(0xFFF6F6F6),
+                        child: Icon(Iconsax.shopping_bag, color: Colors.black),
+                      ),
+                      Positioned(
+                        right: 2,
+                        top: 2,
+                        child: Container(
+                          height: 16,
+                          width: 16,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(
+                            "2",
+                            style: TextStyle(fontSize: 10, color: Colors.white),
                           ),
                         ),
-                        SizedBox(height: 4),
-                        Row(
-                          children: [
-                            Icon(Icons.location_on, color: Colors.grey, size: 16),
-                            SizedBox(width: 4),
-                            Text(
-                              "Kentucky 39495",
-                              style: TextStyle(color: Colors.grey, fontSize: 13),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const Text(
-                      "\$60",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
 
-              const SizedBox(height: 8),
+              SizedBox(height: 20),
 
-              // Rating
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
+              Text.rich(
+                TextSpan(
+                  text: "Hey Halal, ",
+                  style: TextStyle(fontSize: 18),
                   children: [
-                    const Icon(Icons.star, color: Colors.orange, size: 20),
-                    const SizedBox(width: 4),
-                    const Text(
-                      "4.9",
+                    TextSpan(
+                      text: "Good Afternoon!",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(width: 4),
-                    Text(
-                      "(10 Reviews)",
-                      style: TextStyle(color: Colors.grey.shade600),
-                    ),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
 
-              // Ingredients
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "INGREDIENTS",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Wrap(
-                      spacing: 20,
-                      runSpacing: 20,
-                      alignment: WrapAlignment.start,
-                      children: [
-                        _buildIngredient("Salt", Icons.water_drop),
-                        _buildIngredient("Chicken", Icons.set_meal),
-                        _buildIngredient("Onion", Icons.spa, isAllergy: true),
-                        _buildIngredient("Garlic", Icons.energy_savings_leaf),
-                        _buildIngredient("Pappers", Icons.local_florist, isAllergy: true),
-                        _buildIngredient("Ginger", Icons.eco),
-                        _buildIngredient("Broccoli", Icons.grass),
-                        _buildIngredient("Orange", Icons.sunny),
-                        _buildIngredient("Walnut", Icons.restaurant),
-                      ],
-                    ),
-                  ],
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6F6F6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Search dishes, restaurants",
+                    border: InputBorder.none,
+                    icon: Icon(Iconsax.search_normal),
+                  ),
                 ),
               ),
-
 
               const SizedBox(height: 24),
 
-              // Description
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "All Categories",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text("See All", style: TextStyle(color: Colors.redAccent)),
+                ],
+              ),
+              SizedBox(height: 16),
+
+              SizedBox(
+                height: 150,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
                   children: [
-                    const Text(
-                      "Description",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      "Lorem ipsum dolor sit amet, consectetur Maton adipiscing elit. "
-                          "Bibendum in vel, mattis et amet dui mauris turpis.",
-                      style: TextStyle(color: Colors.grey.shade700, height: 1.5),
-                    ),
+                    _buildCategoryCard("Pizza", "Images/burger1.png", "\$70"),
+                    _buildCategoryCard("Burger", "Images/burger2.png", "\$50"),
+                    _buildCategoryCard("Pasta", "Images/pizza1.png", "\$60"),
+                    _buildCategoryCard("Fries", "Images/pizza3.png", "\$30"),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 80),
+              SizedBox(height: 24),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Open Restaurants",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text("See All", style: TextStyle(color: Colors.redAccent)),
+                ],
+              ),
+              SizedBox(height: 12),
+
+              _buildRestaurantCard(
+                name: "Rose Garden Restaurant",
+                image: "Images/burger1.png",
+                tags: ["Burger", "Chicken", "Riche", "Wings"],
+                rating: 4.7,
+                deliveryTime: "20 min",
+                isFreeDelivery: true,
+              ),
+              SizedBox(height: 20),
+              _buildRestaurantCard(
+                name: "Spicy Spoon Diner",
+                image:
+                    "images/restaurant.png", // <-- Add this image to your assets
+                tags: ["Pasta", "Salad", "Dessert"],
+                rating: 4.5,
+                deliveryTime: "25 min",
+                isFreeDelivery: false,
+              ),
             ],
           ),
         ),
@@ -206,53 +182,105 @@ class FoodDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCircleButton({required IconData icon, required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: CircleAvatar(
-        radius: 18,
-        backgroundColor: Colors.grey.shade200,
-        child: Icon(icon, color: Colors.black, size: 18),
-      ),
-    );
-  }
-
-  Widget _buildTag(String text) {
+  Widget _buildCategoryCard(String title, String imagePath, String price) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      width: 120,
+      margin:  EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.85),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        text,
-        style: const TextStyle(fontWeight: FontWeight.w500),
-      ),
-    );
-  }
-
-  Widget _buildIngredient(String name, IconData icon, {bool isAllergy = false}) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CircleAvatar(
-          radius: 24,
-          backgroundColor: Colors.orange.shade50,
-          child: Icon(icon, color: Colors.orange, size: 20),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          name,
-          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
-        ),
-        if (isAllergy)
-          const Text(
-            "(Allergy)",
-            style: TextStyle(color: Colors.orange, fontSize: 9),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.05),
+            blurRadius: 8,
+            offset:  Offset(0, 4),
           ),
-      ],
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(imagePath, height: 60),
+           SizedBox(height: 8),
+          Text(title, style:  TextStyle(fontWeight: FontWeight.bold)),
+           SizedBox(height: 4),
+          Text(
+            "Starting $price",
+            style:  TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+        ],
+      ),
     );
   }
 
 
+  Widget _buildRestaurantCard({
+    required String name,
+    required String image,
+    required List<String> tags,
+    required double rating,
+    required String deliveryTime,
+    required bool isFreeDelivery,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              image,
+              height: 180,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+           SizedBox(height: 8),
+          Text(
+            name,
+            style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+           SizedBox(height: 4),
+          Text(tags.join(" • "), style:  TextStyle(color: Colors.grey)),
+
+           SizedBox(height: 8),
+          Row(
+            children: [
+              const Icon(Icons.star, color: Colors.redAccent, size: 16),
+               SizedBox(width: 4),
+              Text(
+                "$rating",
+                style:  TextStyle(fontWeight: FontWeight.w500),
+              ),
+
+               SizedBox(width: 12),
+               Icon(
+                Icons.local_shipping_outlined,
+                size: 16,
+                color: Colors.redAccent,
+              ),
+               SizedBox(width: 4),
+              Text(
+                isFreeDelivery ? "Free" : "\$5",
+                style:  TextStyle(fontWeight: FontWeight.w500),
+              ),
+
+               SizedBox(width: 12),
+               Icon(Icons.timer, size: 16, color: Colors.redAccent),
+               SizedBox(width: 4),
+              Text(
+                deliveryTime,
+                style:  TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
