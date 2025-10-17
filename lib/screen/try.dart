@@ -159,7 +159,7 @@ class HomeScreen extends StatelessWidget {
 
               _buildRestaurantCard(
                 name: "Rose Garden Restaurant",
-                image: "Images/burger1.png",
+                image: "images/restaurant.png",
                 tags: ["Burger", "Chicken", "Riche", "Wings"],
                 rating: 4.7,
                 deliveryTime: "20 min",
@@ -185,7 +185,7 @@ class HomeScreen extends StatelessWidget {
   Widget _buildCategoryCard(String title, String imagePath, String price) {
     return Container(
       width: 120,
-      margin:  EdgeInsets.only(right: 16),
+      margin: EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -193,7 +193,7 @@ class HomeScreen extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.withOpacity(0.05),
             blurRadius: 8,
-            offset:  Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -201,18 +201,17 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(imagePath, height: 60),
-           SizedBox(height: 8),
-          Text(title, style:  TextStyle(fontWeight: FontWeight.bold)),
-           SizedBox(height: 4),
+          SizedBox(height: 8),
+          Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+          SizedBox(height: 4),
           Text(
-            "Starting $price",
-            style:  TextStyle(fontSize: 12, color: Colors.grey),
+            " $price",
+            style: TextStyle(fontSize: 12, color: Colors.grey),
           ),
         ],
       ),
     );
   }
-
 
   Widget _buildRestaurantCard({
     required String name,
@@ -223,10 +222,11 @@ class HomeScreen extends StatelessWidget {
     required bool isFreeDelivery,
   }) {
     return Container(
+      padding: EdgeInsets.all(5),
       margin: const EdgeInsets.only(bottom: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(),
+        color: Colors.grey.shade200
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -240,43 +240,37 @@ class HomeScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-           SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             name,
-            style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
-           SizedBox(height: 4),
-          Text(tags.join(" • "), style:  TextStyle(color: Colors.grey)),
+          SizedBox(height: 4),
+          Text(tags.join(" • "), style: TextStyle(color: Colors.grey)),
 
-           SizedBox(height: 8),
+          SizedBox(height: 8),
           Row(
             children: [
               const Icon(Icons.star, color: Colors.redAccent, size: 16),
-               SizedBox(width: 4),
-              Text(
-                "$rating",
-                style:  TextStyle(fontWeight: FontWeight.w500),
-              ),
+              SizedBox(width: 4),
+              Text("$rating", style: TextStyle(fontWeight: FontWeight.w500)),
 
-               SizedBox(width: 12),
-               Icon(
+              SizedBox(width: 12),
+              Icon(
                 Icons.local_shipping_outlined,
                 size: 16,
                 color: Colors.redAccent,
               ),
-               SizedBox(width: 4),
+              SizedBox(width: 4),
               Text(
                 isFreeDelivery ? "Free" : "\$5",
-                style:  TextStyle(fontWeight: FontWeight.w500),
+                style: TextStyle(fontWeight: FontWeight.w500),
               ),
 
-               SizedBox(width: 12),
-               Icon(Icons.timer, size: 16, color: Colors.redAccent),
-               SizedBox(width: 4),
-              Text(
-                deliveryTime,
-                style:  TextStyle(fontWeight: FontWeight.w500),
-              ),
+              SizedBox(width: 12),
+              Icon(Icons.timer, size: 16, color: Colors.redAccent),
+              SizedBox(width: 4),
+              Text(deliveryTime, style: TextStyle(fontWeight: FontWeight.w500)),
             ],
           ),
         ],

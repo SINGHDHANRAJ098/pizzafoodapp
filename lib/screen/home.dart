@@ -6,6 +6,7 @@ import 'package:food_pizza_hot/screen/cart.dart';
 
 import 'package:food_pizza_hot/screen/onbording.dart';
 import 'package:food_pizza_hot/screen/restaurent.dart';
+import 'package:iconsax/iconsax.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -35,19 +36,16 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: EdgeInsets.all(10),
-                        child: Icon(Icons.filter_list, color: Colors.black),
+                      CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Color(0xFFF6F6F6),
+                        child: Icon(Icons.menu, color: Colors.black),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -55,45 +53,52 @@ class _HomeState extends State<Home> {
                             "DELIVER TO",
                             style: TextStyle(
                               color: Colors.redAccent,
-                              fontSize: 12,
-                              fontWeight: FontWeight.normal,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                           Row(
                             children: [
                               Text(
                                 "Halal Lab office",
-                                style: TextStyle(color: Colors.black45),
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                              Icon(Icons.arrow_drop_down_outlined),
+                              Icon(Icons.keyboard_arrow_down_rounded, size: 20),
                             ],
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(width: 80),
-                  Badge(
-                    label: Text('2'),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        borderRadius: BorderRadius.circular(10),
+                  Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Color(0xFFF6F6F6),
+                        child: Icon(Iconsax.shopping_bag, color: Colors.black),
                       ),
-                      child: IconButton(
-                        padding: EdgeInsets.all(10),
-                        icon: Icon(
-                          Icons.shopping_bag_outlined,
-                          color: Colors.white,
+                      Positioned(
+                        right: 2,
+                        top: 2,
+                        child: Container(
+                          height: 16,
+                          width: 16,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Colors.redAccent,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(
+                            "2",
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Cart()),
-                          );
-                        },
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
