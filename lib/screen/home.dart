@@ -76,10 +76,15 @@ class _HomeState extends State<Home> {
                   Stack(
                     alignment: Alignment.topRight,
                     children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Color(0xFFF6F6F6),
-                        child: Icon(Iconsax.shopping_bag, color: Colors.black),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                        },
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.black,
+                          child: Icon(Iconsax.shopping_bag, color: Colors.white),
+                        ),
                       ),
                       Positioned(
                         right: 2,
@@ -205,91 +210,212 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 20),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => Restaurent()),
+              //     );
+              //   },
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: Colors.grey.shade100,
+              //       borderRadius: BorderRadius.circular(22),
+              //     ),
+              //     child: Column(
+              //       children: [
+              //         Image.asset(
+              //           "images/restaurant.png",
+              //           height: 200,
+              //           width: 400,
+              //           fit: BoxFit.cover,
+              //         ),
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             Text(
+              //               "Rose Garden Restaurant",
+              //               style: TextStyle(
+              //                 color: Colors.black,
+              //                 fontSize: 16,
+              //                 fontWeight: FontWeight.bold,
+              //               ),
+              //             ),
+              //             Row(
+              //               children: [
+              //                 Text(
+              //                   "Burger - chicken - Wings - Pizza",
+              //                   style: TextStyle(
+              //                     color: Colors.black45,
+              //                     fontSize: 14,
+              //                     fontWeight: FontWeight.normal,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //             Row(
+              //               children: [
+              //                 Icon(
+              //                   Icons.star_border_outlined,
+              //                   color: Colors.redAccent,
+              //                 ),
+              //                 Text(
+              //                   "4.5",
+              //                   style: TextStyle(
+              //                     color: Colors.black45,
+              //                     fontWeight: FontWeight.normal,
+              //                     fontSize: 15,
+              //                   ),
+              //                 ),
+              //                 SizedBox(width: 10),
+              //                 Icon(
+              //                   Icons.delivery_dining,
+              //                   color: Colors.redAccent,
+              //                 ),
+              //                 Text(
+              //                   "Free",
+              //                   style: TextStyle(
+              //                     color: Colors.black45,
+              //                     fontWeight: FontWeight.normal,
+              //                     fontSize: 15,
+              //                   ),
+              //                 ),
+              //                 SizedBox(width: 10),
+              //                 Icon(
+              //                   Icons.watch_later_outlined,
+              //                   color: Colors.redAccent,
+              //                 ),
+              //                 Text(
+              //                   "20 min.",
+              //                   style: TextStyle(
+              //                     color: Colors.black45,
+              //                     fontWeight: FontWeight.normal,
+              //                     fontSize: 15,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Restaurent()),
-                  );
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>Restaurent()));
                 },
                 child: Container(
+                  padding: EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(bottom: 24),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
-                    borderRadius: BorderRadius.circular(22),
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.grey.shade200
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        "images/restaurant.png",
-                        height: 200,
-                        width: 400,
-                        fit: BoxFit.cover,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          "images/restaurant.png",
+                          height: 180,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      SizedBox(height: 8),
+                      Text(
+                        "Rose Garden restaurant ",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      SizedBox(height: 4),
+                      Text("Burger - pizza - Pasta", style: TextStyle(color: Colors.grey)),
+
+                      SizedBox(height: 8),
+                      Row(
                         children: [
+                          Icon(Icons.star, color: Colors.redAccent, size: 16),
+                          SizedBox(width: 4),
+                          Text("4 . 7", style: TextStyle(fontWeight: FontWeight.w500)),
+
+                          SizedBox(width: 12),
+                          Icon(
+                            Icons.local_shipping_outlined,
+                            size: 16,
+                            color: Colors.redAccent,
+                          ),
+                          SizedBox(width: 4),
                           Text(
-                            "Rose Garden Restaurant",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                           "Free",
+                            style: TextStyle(fontWeight: FontWeight.w500),
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                "Burger - chicken - Wings - Pizza",
-                                style: TextStyle(
-                                  color: Colors.black45,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ],
+
+                          SizedBox(width: 12),
+                          Icon(Icons.timer, size: 16, color: Colors.redAccent),
+                          SizedBox(width: 4),
+                          Text("20 mins", style: TextStyle(fontWeight: FontWeight.w500)),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),SizedBox(height: 12,),
+
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context)=>Restaurent()));
+                },
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(bottom: 24),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.grey.shade200
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          "images/resta.jpg",
+                          height: 180,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        "Namo Cafe & Restaurant ",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      SizedBox(height: 4),
+                      Text("Burger - pizza - Pasta", style: TextStyle(color: Colors.grey)),
+
+                      SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Icon(Icons.star, color: Colors.redAccent, size: 16),
+                          SizedBox(width: 4),
+                          Text("4 . 3", style: TextStyle(fontWeight: FontWeight.w500)),
+
+                          SizedBox(width: 12),
+                          Icon(
+                            Icons.local_shipping_outlined,
+                            size: 16,
+                            color: Colors.redAccent,
                           ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.star_border_outlined,
-                                color: Colors.redAccent,
-                              ),
-                              Text(
-                                "4.5",
-                                style: TextStyle(
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Icon(
-                                Icons.delivery_dining,
-                                color: Colors.redAccent,
-                              ),
-                              Text(
-                                "Free",
-                                style: TextStyle(
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Icon(
-                                Icons.watch_later_outlined,
-                                color: Colors.redAccent,
-                              ),
-                              Text(
-                                "20 min.",
-                                style: TextStyle(
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ],
+                          SizedBox(width: 4),
+                          Text(
+                            "\$5",
+                            style: TextStyle(fontWeight: FontWeight.w500),
                           ),
+
+                          SizedBox(width: 12),
+                          Icon(Icons.timer, size: 16, color: Colors.redAccent),
+                          SizedBox(width: 4),
+                          Text("15 mins", style: TextStyle(fontWeight: FontWeight.w500)),
                         ],
                       ),
                     ],

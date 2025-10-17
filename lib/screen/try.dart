@@ -251,7 +251,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 8),
           Row(
             children: [
-              const Icon(Icons.star, color: Colors.redAccent, size: 16),
+               Icon(Icons.star, color: Colors.redAccent, size: 16),
               SizedBox(width: 4),
               Text("$rating", style: TextStyle(fontWeight: FontWeight.w500)),
 
